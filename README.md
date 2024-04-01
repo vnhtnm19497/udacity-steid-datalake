@@ -3,6 +3,7 @@
 ### Project Overview
 
 ### Source Code Structure
+```bash
 udacity-stedi-datalake 
 ├── glue_script
 │   ├── accelerometer_landing_to_trusted.py
@@ -25,5 +26,5 @@ udacity-stedi-datalake
 │   └── Curated
 ├── .gitignore
 └── README.md
-
+```
 
