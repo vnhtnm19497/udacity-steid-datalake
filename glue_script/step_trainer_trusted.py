@@ -87,15 +87,8 @@ DropFields_node1711524183719 = DropFields.apply(
 )
 
 # Script generated for node Step Trainer Trusted
-StepTrainerTrusted_node1711524364151 = glueContext.write_dynamic_frame.from_options(
-    frame=DropFields_node1711524183719,
-    connection_type="s3",
-    format="json",
-    connection_options={
-        "path": "s3://namnhatvu-stedi-lakehouse/step_trainer/trusted/",
-        "partitionKeys": [],
-    },
-    transformation_ctx="StepTrainerTrusted_node1711524364151",
-)
-
+StepTrainerTrusted_node1711524364151 = glueContext.getSink(path="s3://namnhatvu-stedi-lakehouse/step_trainer/trusted/", connection_type="s3", updateBehavior="LOG", partitionKeys=[], enableUpdateCatalog=True, transformation_ctx="StepTrainerTrusted_node1711524364151")
+StepTrainerTrusted_node1711524364151.setCatalogInfo(catalogDatabase="namnhatvu_stedi_lakehouse",catalogTableName="step_trainer_trusted")
+StepTrainerTrusted_node1711524364151.setFormat("json")
+StepTrainerTrusted_node1711524364151.writeFrame(DropFields_node1711524183719)
 job.commit()
